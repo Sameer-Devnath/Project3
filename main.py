@@ -1,21 +1,12 @@
-from pytube import YouTube
+import instaloader
 
-link = "https://www.youtube.com/watch?v=bhxhNIQBKJI"
-youtube_1 = YouTube(link)
-# print(youtube_1.title)
-# print(youtube_1.thumbnail_url)
-
-# videos = youtube_1.streams.all()
-# videos = youtube_1.streams.filter(only_audio=True)
-videos = youtube_1.streams.filter(only_audio=False)
-vid = list(enumerate(videos))
-
-for i in vid:
-    print(i)
-print()
-
-stream = int(input("enter: "))
-print("Downloading...")
-videos[stream].download()
-print("Successfully")
+ig = instaloader.Instaloader()
+user = input("Enter the Instagram username: ")
+isdp = input("Enter 1 for dp_only or 2 for all_post: ")
+if isdp=="1":
+    isdp=True
+else:
+    isdp=False
+ig.download_profile(user,profile_pic_only=isdp)
+# ig.download_profile(user,profile_pic_only=False)
 
